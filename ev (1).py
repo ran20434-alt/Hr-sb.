@@ -1,4 +1,4 @@
-# CODED MY LORDLY
+# CODED MY zane
 import discord
 import asyncio
 import random
