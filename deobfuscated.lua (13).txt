@@ -1,4 +1,4 @@
--- This file was generated at discord.gg/syncrypt
+-- griper lunpe zane on top
 
 local Players = game:GetService("Players")
 local TextChatService = game:GetService("TextChatService")
